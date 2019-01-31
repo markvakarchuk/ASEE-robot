@@ -1,3 +1,6 @@
+
+/*NOT DONE DON'T TOUCH YET*/
+
 // Pin definitions
 #define linesensor 1
 #define MOTORL 3
@@ -16,7 +19,7 @@ void loop() {
 }
 
 //-------SENSOR READING CODE----------
-void readIRDsensors()
+void readLFMSensors()
 {
   LFMSensor[0] = digitalRead(LFMSensor0);
   LFMSensor[1] = digitalRead(LFMSensor1);
@@ -27,23 +30,21 @@ void readIRDsensors()
   LFMSensor[6] = digitalRead(LFMSensor6);
   LFMSensor[7] = digitalRead(LFMSensor7);
   
-  if((     ((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = 8;}
-  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = 7;}
-  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = 6;}
-  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = 5;}
-  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = 4;}
-  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = 3;}
-  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = 2;}
+  if((   ((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 0 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 1 ))  {mode = FOLLOWING_LINE; error = 7;}
+  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 0 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 1 )&&(LFMSensor[7]== 1 ))  {mode = FOLLOWING_LINE; error = 6;}
+  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 0 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 1 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = 5;}
+  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 0 )&&(LFMSensor[5]== 1 )&&(LFMSensor[6]== 1 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = 4;}
+  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 0 )&&(LFMSensor[5]== 1 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = 3;}
+  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 1 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = 2;}
   else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = 1;}
-  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 1 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = 0;}
-  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error =- 1;}
-  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = -2;}
-  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = -3;}
-  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = -4;}
-  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = -5;}
-  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = -6;}
-  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = -7;}
-  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = -8;}
+  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 1 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error =- 0;}
+  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 1 )&&(LFMSensor[4]== 0 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = -1;}
+  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 1 )&&(LFMSensor[3]== 1 )&&(LFMSensor[4]== 0 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = -2;}
+  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 1 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 0 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = -3;}
+  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 1 )&&(LFMSensor[2]== 1 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 0 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = -4;}
+  else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 1 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 0 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = -5;}
+  else if((LFMSensor[0]== 1 )&&(LFMSensor[1]== 1 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 0 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = -6;}
+  else if((LFMSensor[0]== 1 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 0 )&&(LFMSensor[4]== 0 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = FOLLOWING_LINE; error = -7;}
   else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 1 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = STOPPED; error = 0;}
   else if((LFMSensor[0]== 0 )&&(LFMSensor[1]== 0 )&&(LFMSensor[2]== 0 )&&(LFMSensor[3]== 1 )&&(LFMSensor[4]== 1 )&&(LFMSensor[5]== 0 )&&(LFMSensor[6]== 0 )&&(LFMSensor[7]== 0 ))  {mode = NO_LINE; error = 0;}
 }
