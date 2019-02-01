@@ -88,6 +88,3 @@ void testLFMSensors()
      Serial.print (" PID: ");
      Serial.println (PIDvalue);
 }
-
-
-git test
